@@ -62,7 +62,7 @@ public class UserRegistration {
 		    	 System.out.println("Invalid Email Address");
 		     } 
 		}
-		//method to check Phoneno Valid or Invalid	
+		 //method to check Phoneno Valid or Invalid	
 		 public void validateMobileNo() {
 			 System.out.println("Enter MobileNo with country code");
 			 String mobileno=sc.next();
