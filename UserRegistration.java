@@ -86,9 +86,10 @@ public class UserRegistration {
 			 /*regex pattern for password:
 			  * 1)must contain atleast 8 characters 
 			  * 2)must contain one UpperCase
-			  * 3)should have 1 numericno.
+			  * 3)should have 1 numericno
+			  * 4)has contain Exactily one specialSymbol.
 			 */
-			 String regex = "^[A-Z]{1}+[a-zA-z1-9]{6,}[1-9]{1}$";
+			 String regex = "^[A-Z]{1}+[a-zA-z1-9]{5,}[@$^]{1}[1-9]{1}$";
 			 Pattern p = Pattern.compile(regex);
 			 Matcher matcher = p.matcher(password);
 			 boolean result = matcher.matches();
@@ -100,7 +101,6 @@ public class UserRegistration {
 		    	 System.out.println("Invalid Password");
 		     } 
 		}
-
 		 public static void main(String[] args) {
 				UserRegistration registration=new UserRegistration();
 				Scanner sc=new Scanner(System.in);
