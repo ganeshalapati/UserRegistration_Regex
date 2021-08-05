@@ -40,13 +40,36 @@ public class UserRegistration {
 		    	 System.out.println("Invalid username");
 		     } 
 		}
+		 //method to check Email Valid or Invalid	
+		 public void validateEmail() {
+			 System.out.println("Enter Email");
+			 String email=sc.next();
+			 /*regex pattern for email
+			  * 1)must contain character before @
+			  * 2)must contain @ symbol after char
+			  * 3)must contain char after @
+			  * 4)must contain "."  symbol before com or in
+			  */
+			 String regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";
+			 Pattern p = Pattern.compile(regex);
+			 Matcher matcher = p.matcher(email);
+			 boolean result = matcher.matches();
+			 
+		     if(result){
+		    	 System.out.println("Valid Email Address");
+		     }
+		     else {
+		    	 System.out.println("Invalid Email Address");
+		     } 
+		}
+
 		
 		 public static void main(String[] args) {
 				UserRegistration registration=new UserRegistration();
 				Scanner sc=new Scanner(System.in);
 				while(true) {
 					//userinput choice for checking Multiple validation
-					System.out.println("Enter choce\n 1)UserName\n 2)LastName\n");
+					System.out.println("Enter choce\n 1)UserName\n 2)LastName\n 3)Email\n");
 					int choice=sc.nextInt();
 					switch(choice) {
 					case 1:
@@ -54,6 +77,9 @@ public class UserRegistration {
 						break;
 					case 2:
 						registration.validateLastname();
+						break;
+					case 3:
+						registration.validateEmail();
 						break;
 					default:
 						System.out.println("Invalid choice");
