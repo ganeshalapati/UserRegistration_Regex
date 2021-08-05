@@ -62,6 +62,23 @@ public class UserRegistration {
 		    	 System.out.println("Invalid Email Address");
 		     } 
 		}
+		//method to check Phoneno Valid or Invalid	
+		 public void validateMobileNo() {
+			 System.out.println("Enter MobileNo with country code");
+			 String mobileno=sc.next();
+			 //regex pattern for email
+			 String regex =  "^[1-9]{2}\\s[0-9]{10}$";
+			 Pattern p = Pattern.compile(regex);
+			 Matcher matcher = p.matcher(mobileno);
+			 boolean result = matcher.matches();
+			 
+		     if(result){
+		    	 System.out.println("Valid MobileNo");
+		     }
+		     else {
+		    	 System.out.println("Invalid MobileNo");
+		     } 
+		}
 
 		
 		 public static void main(String[] args) {
@@ -69,7 +86,7 @@ public class UserRegistration {
 				Scanner sc=new Scanner(System.in);
 				while(true) {
 					//userinput choice for checking Multiple validation
-					System.out.println("Enter choce\n 1)UserName\n 2)LastName\n 3)Email\n");
+					System.out.println("Enter choce\n 1)UserName\n 2)LastName\n 3)Email\n 4)PhoneNo");
 					int choice=sc.nextInt();
 					switch(choice) {
 					case 1:
@@ -81,10 +98,12 @@ public class UserRegistration {
 					case 3:
 						registration.validateEmail();
 						break;
+					case 4:
+						registration.validateMobileNo();
+						break;		
 					default:
 						System.out.println("Invalid choice");
 						System.exit(0);
-					}
-					}
+					}}				
 		 }
 }
